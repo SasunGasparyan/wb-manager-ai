@@ -18,6 +18,17 @@ API_KEY = "ԱՅՍՏԵՂ_ՓԱԿՑՐՈՒ_ՔՈ_ՍՏԱՑԱԾ_ԿՈԴԸ"
 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
+generation_config = {
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "top_k": 40,
+  "max_output_tokens": 1024, # Սա թույլ չի տա շատ երկար «ծամել» պատասխանը
+}
+
+model = genai.GenerativeModel(
+  model_name="gemini-1.5-flash",
+  generation_config=generation_config,
+)
 
 # ԳԱՂՏՆԻ ԳԻՏԵԼԻՔՆԵՐԻ ԲԱԶԱ (Քո տրամադրած տեքստը)
 KNOWLEDGE_BASE = """
